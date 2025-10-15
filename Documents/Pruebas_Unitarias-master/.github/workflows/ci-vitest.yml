@@ -1,0 +1,43 @@
+name: CI - Vitest
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  test:
+    name: Ejecutar pruebas con Vitest
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Clona el repositorio
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      # 2️⃣ Configura Node.js (elige la versión que uses en el proyecto)
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 3️⃣ Instala dependencias
+      - name: Instalar dependencias
+        run: npm install
+
+      # 4️⃣ Ejecuta las pruebas con Vitest
+      - name: Ejecutar pruebas unitarias
+        run: npm run test
+
+      # 5️⃣ (Opcional) Generar reporte de cobertura
+      - name: Generar cobertura
+        run: npm run test -- --coverage
+
+      # 6️⃣ (Opcional) Subir resultados de cobertura como artefacto
+      - name: Subir reporte de cobertura
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-cobertura
+          path: coverage

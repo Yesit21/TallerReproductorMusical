@@ -1,0 +1,18 @@
+Descripción del objetivo del archivo ci-vitest.yml
+
+El archivo ci-vitest.yml define un flujo de trabajo (workflow) de Integración Continua (CI) para el proyecto.
+Su objetivo principal es automatizar la ejecución de pruebas unitarias con Vitest cada vez que se realicen cambios en el repositorio (por ejemplo, un push o pull request).
+
+De esta forma, se garantiza que el código nuevo o modificado mantenga su funcionalidad y calidad, evitando errores antes de integrarse a la rama principal.
+
+⚙️ Objetivos específicos
+
+Verificar automáticamente que el proyecto se instale correctamente y sus dependencias estén actualizadas.
+
+Ejecutar pruebas unitarias con Vitest en un entorno controlado (Ubuntu) cada vez que haya cambios en master o main.
+
+Detectar fallos de manera temprana, asegurando la estabilidad del código antes de fusionar ramas.
+
+(Opcional) Generar reportes de cobertura de código, los cuales ayudan a medir qué porcentaje del proyecto está cubierto por pruebas.
+
+(Opcional) Subir los resultados como artefactos al flujo de GitHub Actions para consulta o análisis posterior.
